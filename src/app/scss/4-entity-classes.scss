@@ -157,11 +157,11 @@
 
         &--inverse {
           background-color: transparent;
-          color: $AppColor;
-          color: #fff;
+          color: $greyDark;
           border: 1px solid $AppColor;
+          color: #000;
+
           &:hover {
-            color: #000;
             background-color: $AppColor;
           }
         }
