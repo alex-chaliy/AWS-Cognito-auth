@@ -1,0 +1,28 @@
+@import '../../../scss/global-styles.vendor.scss';
+
+.topNav {
+  @extend .clearfix;
+  padding: 16px 0;
+  background: #fff;
+  border-bottom: 2px solid $AppColor;
+  box-shadow: 0 0 4px 1px rgba(0,0,0, .15);
+
+  /*
+   * @elements
+   */
+  &-menu {
+    list-style: none;
+    li {
+      display: table;
+      float: left;
+      padding-left: 10px;
+    }
+  }
+
+  /*
+   * @modifiers (states)
+   */
+  &--testState {
+    color: green;
+  }
+}

@@ -11,6 +11,13 @@ import { LoginPageModule } from './login-page/login-page.module';
 import { ProfileModule } from './profile/profile.module'; // profile pages
 import { RegisterPageModule } from './register-page/register-page.module';
 
+// UI-elements
+import { TopNavModule } from './ui-elements/top-nav/top-nav.module';
+
+// Services
+import { UserService } from './services/user/user.service';
+import { MenuService } from './services/menu/menu.service';
+
 
 @NgModule({
   declarations: [
@@ -25,9 +32,15 @@ import { RegisterPageModule } from './register-page/register-page.module';
     // Page Modules
     LoginPageModule,
     ProfileModule, // profile pages
-    RegisterPageModule
+    RegisterPageModule,
+
+    // UI-elements
+    TopNavModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    MenuService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

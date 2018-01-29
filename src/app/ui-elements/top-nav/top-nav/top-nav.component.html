@@ -1,0 +1,9 @@
+<div class="topNav">
+  <div class="container">
+    <ul class="topNav-menu">
+      <li *ngFor="let item of menuItems">
+        <a [routerLink]="item.url"> {{ item.name }} </a>
+      </li>
+    </ul>
+  </div>
+</div>
