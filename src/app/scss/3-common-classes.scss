@@ -1,0 +1,36 @@
+/* Basics */
+    .clearfix:after {
+        content: '';
+        display: block;
+        width: 100%;
+        position: relative;
+        clear: both;
+    }
+
+    .btnReset {
+        border: none;
+        outline: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+/* Basics - end */
+
+/* Positioning */
+    .pullLeft { float: left!important; }
+    .pullRight { float: right!important; }
+
+    .marginBottom { margin-bottom: $standartSize !important }
+    .marginBottom2x { margin-bottom: $standartSize * 2 !important }
+/* Positioning - end */
+
+/* Block Model */
+/* Block Model - end */
+
+/* Text */
+/* Text - end */
+
+/* Image */
+/* Image - end */
+
+/* Others */
+/* Others - end */

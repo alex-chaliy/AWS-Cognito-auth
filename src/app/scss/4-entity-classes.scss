@@ -1,0 +1,199 @@
+@import './vars/Colors.scss';
+@import './vars/Common.scss';
+
+/* Abstract CLASSES */
+
+    /* Input */
+      /* Vars */
+      $Input_vertPad : 7px;
+      $Input_horizPad : 18px;
+
+      $InputField_h : 50px;
+      /* Vars - end */
+      
+      /* Mixins (Methods) */
+      /* Mixins (Methods) - end */
+
+      .Input {
+        @extend .clearfix;
+        position: relative;
+        display: block;
+        color: #000;
+        font-size: 18px;
+        width: 100%;
+        border-radius: 4px;
+      }
+
+      /**
+       * @hierarchy: for all inputs : Input contains InputField
+       */
+      .InputField {
+        border: 1px solid $AppColor;
+        border-radius: 4px;
+        height: $InputField_h;
+        font-size: inherit;
+        padding: $Input_vertPad $Input_horizPad;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba($AppColor, .3);
+        }
+      }
+    /* Input - end */
+
+    /* Box */
+      .Box {
+        @extend .clearfix;
+        border-radius: 4px;
+        color: #000;
+        background-color: #fff;
+        padding: 18px 22px 14px;
+      }
+    /* Box - end */
+/* Abstract CLASSES - end */
+
+
+/* CLASSES */
+
+  /* BOXES ---------------------------------------- */
+      /* simpleBox */
+          .simpleBox {
+              @extend .Box;
+              margin-bottom: $standartSize;
+              font-size: 18px;
+          }
+      /* simpleBox -end */
+
+  /* INPUTS ---------------------------------------- */
+    $shift: 12px;
+    /* simpleInput */
+      .simpleInput {
+        @extend .Input;
+        &-input, // @elements: input, textarea, select
+        input { @extend .InputField; }
+      }
+
+      .hasValue_title {
+        font-size: 13px;
+        top: $shift / 1.5;
+        color: #777;
+      }
+    /* simpleInput - end */
+
+    /* titledInput */
+      .titledInput {
+        @extend .Input;
+        &-input {  // @elements: input, textarea, select
+          @extend .InputField;
+          transition: margin .2s, height .2s;
+          display: block;
+          width: 100%;
+          resize: none;
+        }
+
+        &-input:valid, 
+        &-input:focus {
+          margin-top: $shift;
+          padding-bottom: $shift / 2;
+          padding-top: $Input_horizPad * 1.2;
+          height: $InputField_h + $shift;
+        }
+
+        &-title {
+          transition: top .2s;
+          position: absolute;
+          left: $Input_horizPad;
+          top: $Input_vertPad * 2;
+        }
+        &-input:valid + &-title,
+        &-input:focus + &-title {
+          @extend .hasValue_title;
+        }
+
+        textarea:valid + &-title,
+        textarea:focus + &-title {
+          top: 0 - $Input_vertPad*3 !important;
+        }
+        textarea {
+          height: auto;
+          min-height: $InputField_h;
+          min-height: 110px;
+        }
+      }
+
+      .titledInput--hasValue {
+        .titledInput-title {
+          @extend .hasValue_title;
+        }
+      }
+    /* titledInput - end */
+
+  /* ---------------------------------------- */
+
+  /* SMALL UIs */
+    /* Buttons */
+      $btn_vertPad: 6px;
+      $btn_horizPad: 18px;
+      ._btn {
+        transition: width .2s, background-color .2s;
+        @extend .btnReset;
+        border-radius: 50px;
+        background-color: $AppColor;
+        background-color: $AppColor;
+        color: #000;
+        cursor: pointer;
+        padding: $btn_vertPad $btn_horizPad ;
+        font-size: 16px;
+        text-align: center;
+        display: block;
+        &:hover {
+          box-shadow: $boxShad;
+        }
+
+        &--big {
+          font-size: 22px;
+          padding: 10px 30px;
+        }
+
+        &--inverse {
+          background-color: transparent;
+          color: $AppColor;
+          color: #fff;
+          border: 1px solid $AppColor;
+          &:hover {
+            color: #000;
+            background-color: $AppColor;
+          }
+        }
+        &--grey {
+          background-color: rgba($greyDark, .15);
+          color: $greyLight;
+          border: 1px solid $greyDark;
+          &:hover {
+            background-color: $greyDark;
+            color: #fff;
+          }
+        }
+
+      }
+
+      .simpleLabel {
+        display: table;
+        margin: 0;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        color: $AppColor;
+      }
+    /* Btn - end */
+
+    .pageTitle {
+      margin: $standartSize 0;
+      font-size: 32px;
+      font-family: $headersFont;
+      color: #000;
+      text-align: center;
+    }
+
+  /* SMALL UIs - end */
+/* CLASSES - end */

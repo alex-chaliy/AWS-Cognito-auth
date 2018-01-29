@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+
+@import './assets/lib/bootstrap-grid.min.css';
+@import './app/scss/vars/Colors.scss';
+@import './app/scss/vars/Common.scss';
+@import './app/scss/1-resets.scss';
+@import './app/scss/2-mixins.scss';
+@import './app/scss/3-common-classes.scss';
+@import './app/scss/4-entity-classes.scss';
+
+body {
+    font-family: $appFont;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background-color: #f2f2f2;
+}
+
+html, body { height: 100% }
+
+@media (max-width: 575px) {
+    body { background-size: 300% 100% }
+}
+
+* {
+    box-sizing: border-box;
+}
