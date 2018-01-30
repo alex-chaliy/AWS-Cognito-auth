@@ -1,16 +1,52 @@
 <div class="container">
-  <div class="simpleBox">
+  <div class="simpleBox marginBottom2x">
     <h2 class="pageTitle"> Create an Account </h2>
 
-    <h3 class="simpleLabel"> Input your mobile phone number to register </h3>
-
-    <label class="titledInput Input--noBorder marginBottom2x">
+    <!-- 
+      @note: use phone_number as username(login) 
+    -->
+    <h3 class="simpleLabel"> Phone Number will be your Login </h3>
+    <label class="titledInput Input--noBorder marginBottom">
       <input class="titledInput-input" type="text" required
-      >
-        <!-- [(ngModel)]="userToWrite.phone_number" -->
+        [(ngModel)]="phone_number">
       <span class="titledInput-title"> Phone Number </span>
     </label>
 
-    <button class="_btn _btn--big _btn--inverse"> Register </button>
+    <h3 class="simpleLabel"> At least 6 symbols </h3>
+    <label class="titledInput Input--noBorder marginBottom">
+      <input class="titledInput-input" type="text" required
+        [(ngModel)]="password">
+      <span class="titledInput-title"> Password </span>
+    </label>
+
+    <h3 class="simpleLabel"> E-Mail </h3>
+    <label class="titledInput Input--noBorder marginBottom">
+      <input class="titledInput-input" type="text" required
+        [(ngModel)]="email">
+      <span class="titledInput-title"> E-Mail </span>
+    </label>
+
+    <button class="_btn _btn--big _btn--inverse"
+      (click)="register()"
+    > Register </button>
+
+    <p> {{registerStatus}} </p>
+  </div>
+
+
+  <div class="simpleBox marginBottom2x" [hidden]="!isRegistrationSuccess">
+    <h2 class="pageTitle"> Confirm your phone </h2>
+
+    <label class="titledInput Input--noBorder marginBottom">
+      <input class="titledInput-input" type="text" required
+        [(ngModel)]="confirmationCode">
+      <span class="titledInput-title"> Confirmation Code from SMS </span>
+    </label>
+
+    <button class="_btn _btn--big _btn--inverse"
+      (click)="confirm()"
+    > Confirm </button>
+
+    <p> {{confirmStatus}} </p>
   </div>
 </div>
